@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test GmbH — IT & Software</title>
+  <style>
+    
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-dark: #1e40af;
+      --color-bg: #ffffff;
+      --color-bg-alt: #f8fafc;
+      --color-text: #1e293b;
+      --color-text-light: #64748b;
+      --color-border: #e2e8f0;
+      --font-family: 'Inter', system-ui, sans-serif;
+      --max-width: 1200px;
+      --radius: 12px;
+    }
+  
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-family);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+    }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Header ──────────────────── */
+    .site-header {
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.95);
+    }
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .site-nav { display: flex; gap: 24px; list-style: none; }
+    .site-nav a {
+      color: var(--color-text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .site-nav a:hover { color: var(--color-primary); text-decoration: none; }
+
+    /* ── Hero ─────────────────────── */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--color-bg-alt), var(--color-bg));
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.75rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 640px; margin: 0 auto 32px; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--color-primary-dark); text-decoration: none; transform: translateY(-1px); }
+
+    /* ── Sections ─────────────────── */
+    section { padding: 64px 0; }
+    section:nth-child(even) { background: var(--color-bg-alt); }
+    .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 12px; }
+    .section-subtitle { text-align: center; color: var(--color-text-light); margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* ── Services Grid ────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .service-card h3 { font-size: 1.25rem; margin-bottom: 8px; color: var(--color-primary); }
+    .service-card p { color: var(--color-text-light); font-size: 0.95rem; }
+
+    /* ── Footer ───────────────────── */
+    .site-footer {
+      background: var(--color-text);
+      color: #cbd5e1;
+      padding: 48px 0 24px;
+    }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 32px; }
+    .footer-col h4 { color: #fff; margin-bottom: 12px; font-size: 1rem; }
+    .footer-col p, .footer-col a { color: #94a3b8; font-size: 0.9rem; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #334155; padding-top: 24px; text-align: center; font-size: 0.85rem; color: #64748b; }
+
+    /* ── Responsive ───────────────── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 48px 0; }
+      section { padding: 40px 0; }
+      .site-nav { gap: 16px; }
+      .site-nav a { font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .site-header .container { flex-direction: column; gap: 12px; }
+      .hero h1 { font-size: 1.6rem; }
+    }
+  
+    
+    /* ── Contact Form ────────────── */
+    .contact-section { padding: 64px 0; }
+    .contact-form {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: var(--font-family);
+      transition: border-color 0.2s;
+      background: var(--color-bg);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-submit { text-align: center; margin-top: 24px; }
+    .form-submit .btn-primary { width: 100%; max-width: 300px; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="site-logo">Test GmbH</a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+  <section class="hero">
+    <div class="container">
+      <h1>Willkommen bei Test GmbH</h1>
+      <p>Ihr professioneller Partner für IT & Software in M�nchen</p>
+      <a href="#kontakt" class="btn-primary">Jetzt Kontakt aufnehmen</a>
+    </div>
+  </section>
+  
+  <section id="leistungen">
+    <div class="container">
+      <h2 class="section-title">Unsere Leistungen</h2>
+      <p class="section-subtitle">Maßgeschneiderte Lösungen für Ihren Erfolg</p>
+      <div class="services-grid">
+        
+      <div class="service-card">
+        <h3>Beratung</h3>
+        <p>Professionelle Beratung-Lösungen, individuell auf Ihre Bedürfnisse zugeschnitten.</p>
+      </div>
+      <div class="service-card">
+        <h3>Umsetzung</h3>
+        <p>Professionelle Umsetzung-Lösungen, individuell auf Ihre Bedürfnisse zugeschnitten.</p>
+      </div>
+      <div class="service-card">
+        <h3>Support</h3>
+        <p>Professionelle Support-Lösungen, individuell auf Ihre Bedürfnisse zugeschnitten.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="kontakt" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Kontakt aufnehmen</h2>
+      <p class="section-subtitle">Schreiben Sie uns — wir melden uns innerhalb von 24 Stunden</p>
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Ihr Name">
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="ihre@email.de">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer">
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht *</label>
+          <textarea id="message" name="message" required placeholder="Wie können wir Ihnen helfen?"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">Nachricht senden</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <p>Vielen Dank für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Test GmbH</h4>
+          <p>Ihr Partner für IT & Software</p>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <p>E-Mail: <a href="mailto:info@test-gmbh.de">info@test-gmbh.de</a></p>
+          
+          
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Test GmbH. Alle Rechte vorbehalten.</p>
+        
+      </div>
+    </div>
+  </footer>
+
+  
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
+  
+</body>
+</html>
